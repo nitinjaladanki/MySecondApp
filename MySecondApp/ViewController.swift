@@ -11,24 +11,14 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var ImageView1: UIImageView!
-    var showFirstImage: Bool = false
+    var pokeImages = ["Bullbasaur", "Charmander", "Dratini", "Eevee", "Jigglypuff", "Meowth", "Pikachu", "Psyduck", "Snorlax", "Squirtle", "Zubat"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
-    @IBAction func ImageLoad(_ sender: Any) {
-        if (showFirstImage == false)
-        {
-            ImageView1.image = UIImage(named: "Pikachu")
-            showFirstImage = true
-        }
-        else
-        {
-            ImageView1.image = UIImage(named: "Psyduck")
-            showFirstImage = false
-        }
+    @IBAction func ImageLoad(_ sender: Any){
+        let picker = Int.random(in: 0...10)
+        ImageView1.image = UIImage(named: pokeImages[picker])
     }
 }
-
-
